@@ -1,0 +1,20 @@
+.navigation {
+    width: 100%;
+    padding: 24px 20px;
+    display: flex;
+    justify-content: end;
+    .logo {
+        width: 153px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .navigation {
+        padding: 16px;
+        .logo {
+            width: 115px;
+            height: 32px;
+        }
+    }
+}
