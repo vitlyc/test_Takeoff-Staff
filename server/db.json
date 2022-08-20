@@ -26,5 +26,35 @@
       "password": "$2a$10$t5qj7HdkUNaoLHjaGsBmIev0YW3ojpXOD064rI8SNu6DpwfFHlMBa",
       "id": "OD7QC6z"
     }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Bob",
+      "email": "bob@mail.com",
+      "phone": "7856930"
+    },
+    {
+      "id": 2,
+      "name": "Jessica",
+      "email": "jessica@mail.com",
+      "phone": "1243894"
+    },
+    {
+      "id": 3,
+      "name": "Hans",
+      "email": "hans@mail.com",
+      "phone": "000222"
+    },
+    {
+      "email": "test04@mail.com",
+      "password": "1234567",
+      "id": 4
+    },
+    {
+      "email": "test04@mail.com",
+      "password": "1234567",
+      "id": 5
+    }
   ]
 }

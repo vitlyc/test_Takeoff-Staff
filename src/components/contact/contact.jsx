@@ -1,26 +1,61 @@
 import "./contact.scss";
 import { BiTrashAlt, BiUserPlus, BiEditAlt, BiSave } from "react-icons/bi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
-const Contact = () => {
-  const [isEdit, setIsEdit] = useState(false);
+const Contact = ({ contact }) => {
+  const [isInputsDisabled, setInputsDisabled] = useState(true);
+  const [inputs, setInputs] = useState(contact);
 
-  const handleInputChange = () => {};
-
-  const clickEdit = () => {
-    setIsEdit(true);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputs({ ...inputs, [name]: value });
   };
 
+  const handleEditContact = () => {
+    setInputsDisabled(!isInputsDisabled);
+    setInputs(contact);
+    console.log("s");
+  };
+
+  const blockInputs = () => {
+    setInputs(contact);
+    setInputsDisabled(true);
+  };
+
+  const ref = useDetectClickOutside({ onTriggered: blockInputs });
+
+  const handleSaveContact = () => {};
+
   return (
-    <div className="contact-container">
+    <div className="contact-container" ref={ref}>
       <div className="fields">
-        <input type="text" disabled={isEdit} value="name" onChange={handleInputChange} />
-        <input type="text" disabled={isEdit} value="name" onChange={handleInputChange} />
+        <input
+          name="name"
+          type="text"
+          disabled={isInputsDisabled}
+          value={inputs.name}
+          onChange={handleInputChange}
+        />
+        <input
+          name="email"
+          type="text"
+          disabled={isInputsDisabled}
+          value={inputs.email}
+          onChange={handleInputChange}
+        />
+        <input
+          name="phone"
+          type="text"
+          disabled={isInputsDisabled}
+          value={inputs.phone}
+          onChange={handleInputChange}
+        />
       </div>
       <div className="buttons">
-        <BiEditAlt />
+        <BiEditAlt onClick={() => handleEditContact()} />
         <BiTrashAlt />
-        <BiSave />
+        {!isInputsDisabled ? <BiSave /> : ""}
       </div>
     </div>
   );
