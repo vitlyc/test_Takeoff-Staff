@@ -23,8 +23,7 @@ const ContactList = () => {
   }, []);
 
   const handleCreateContact = (contact) => {
-    createContact(contact);
-    console.log(contact);
+    createContact(contact, Bearer);
   };
 
   return (

@@ -2,7 +2,6 @@ import CONTACTS_ACTION_TYPES from "./contacts.types";
 import { createAction } from "../../utils/reducer/reducer.utils";
 
 export const setContactsMap = (contactsMap) => {
-  console.log(contactsMap);
   return createAction(CONTACTS_ACTION_TYPES.SET_CONTACTS_MAP, contactsMap);
 };
 

@@ -44,7 +44,6 @@ export function deleteContact(id, Bearer) {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${Bearer}`,
-
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -60,13 +59,12 @@ export async function patchContact(inputs, Bearer) {
     }),
     headers: {
       Authorization: `Bearer ${Bearer}`,
-
       Accept: "application/json",
       "Content-Type": "application/json",
     },
   }).then(checkStatus);
 }
-export async function createContact(inputs) {
+export async function createContact(inputs, Bearer) {
   return await fetch(`${BASE_URL}/contacts`, {
     method: "POST",
     body: JSON.stringify({
@@ -75,6 +73,7 @@ export async function createContact(inputs) {
       phone: inputs.phone,
     }),
     headers: {
+      Authorization: `Bearer ${Bearer}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
