@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  console.log(currentUser);
+  // console.log(currentUser);
   const dispatch = useDispatch();
 
   const handleLogout = () => {

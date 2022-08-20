@@ -10,6 +10,7 @@ import SignInForm from "./components/sign-in-form/sign-in-form";
 import SignUpForm from "./components/sign-up-form/sign-up-form";
 import Navigation from "./components/navigation/navigation";
 import ContactList from "./components/contact-list/contact-list";
+import ProtectedRoute from "./components/protected-route/protected-route";
 
 import { login, register } from "./utils/Api";
 
@@ -17,7 +18,7 @@ function App() {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  console.log(currentUser);
   const handleLogin = ({ email, password }) => {
     login({ email, password }).then((res) => {
       dispatch(setCurrentUser(res));
@@ -26,9 +27,7 @@ function App() {
   };
 
   const handleRegister = ({ email, password }) => {
-    console.log(email, password);
-    register({ email, password }).then((res) => console.log(res.user));
-    navigate("/main");
+    register({ email, password }).then((res) => navigate("/main"));
   };
 
   useEffect(() => {
@@ -38,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <section className="App-header">
-        <Routes>
+        {/* <Routes>    
           <Route path="/" element={<Navigation />}>
             <Route index element={<SignInForm handleLogin={handleLogin} />} />
             <Route
@@ -47,6 +46,23 @@ function App() {
             />
             <Route path="main" element={<ContactList />} />
           </Route>
+        </Routes> */}
+        <Navigation />
+        <Routes>
+          <Route index element={<SignInForm handleLogin={handleLogin} />} />
+          <Route
+            path="sign-up"
+            element={<SignUpForm handleRegister={handleRegister} />}
+          />
+          {/* <Route path="main" element={<ContactList />} /> */}
+          <Route
+            path="/main"
+            element={
+              <ProtectedRoute currentUser={currentUser}>
+                <ContactList />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </section>
     </div>
