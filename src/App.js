@@ -18,16 +18,20 @@ function App() {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(currentUser);
-  const handleLogin = ({ email, password }) => {
-    login({ email, password }).then((res) => {
+  // console.log(currentUser);
+
+  const handleLogin = async ({ email, password }) => {
+    await login({ email, password }).then((res) => {
       dispatch(setCurrentUser(res));
+      navigate("/main");
     });
-    navigate("/main");
   };
 
-  const handleRegister = ({ email, password }) => {
-    register({ email, password }).then((res) => navigate("/main"));
+  const handleRegister = async ({ email, password }) => {
+    await register({ email, password }).then((res) => {
+      dispatch(setCurrentUser(res));
+      navigate("/main");
+    });
   };
 
   useEffect(() => {
@@ -37,16 +41,6 @@ function App() {
   return (
     <div className="App">
       <section className="App-header">
-        {/* <Routes>    
-          <Route path="/" element={<Navigation />}>
-            <Route index element={<SignInForm handleLogin={handleLogin} />} />
-            <Route
-              path="sign-up"
-              element={<SignUpForm handleRegister={handleRegister} />}
-            />
-            <Route path="main" element={<ContactList />} />
-          </Route>
-        </Routes> */}
         <Navigation />
         <Routes>
           <Route index element={<SignInForm handleLogin={handleLogin} />} />
@@ -54,7 +48,6 @@ function App() {
             path="sign-up"
             element={<SignUpForm handleRegister={handleRegister} />}
           />
-          {/* <Route path="main" element={<ContactList />} /> */}
           <Route
             path="/main"
             element={

@@ -1,0 +1,6 @@
+const CONTACTS_ACTION_TYPES = {
+  SET_CONTACTS_MAP: "contacts/SET_CONTACTS_MAP",
+  DELTE_CONTACT: "contacts/DELTE_CONTACT",
+};
+
+export default CONTACTS_ACTION_TYPES;

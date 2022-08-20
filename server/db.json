@@ -25,35 +25,34 @@
       "email": "test06@mail.com",
       "password": "$2a$10$t5qj7HdkUNaoLHjaGsBmIev0YW3ojpXOD064rI8SNu6DpwfFHlMBa",
       "id": "OD7QC6z"
+    },
+    {
+      "email": "test07@mail.com",
+      "password": "$2a$10$SzfWYkLumCPF3oFzkQ3b7e5fW352AvGQk7oh2WiwTGf0klmRiCSSO",
+      "id": "wULffjv"
+    },
+    {
+      "email": "test08@mail.com",
+      "password": "$2a$10$trzHDy.YbTCAGV6dDQqZTONfJ4KeTn.PVXE0IAiLowEoBIQoJrTd.",
+      "id": "3_02-g1"
+    },
+    {
+      "email": "test049@mail.com",
+      "password": "$2a$10$ArNunK5nJXXM8xBetma/iOlHvK4yKi3Hssgcvf9RUTh6hUlAKXBvm",
+      "id": "_IW7UdW"
     }
   ],
   "contacts": [
     {
-      "id": 1,
-      "name": "Bob",
-      "email": "bob@mail.com",
-      "phone": "7856930"
-    },
-    {
-      "id": 2,
-      "name": "Jessica",
+      "name": "New",
       "email": "jessica@mail.com",
-      "phone": "1243894"
+      "phone": "1243894",
+      "id": 3
     },
     {
-      "id": 3,
-      "name": "Hans",
-      "email": "hans@mail.com",
-      "phone": "000222"
-    },
-    {
-      "email": "test04@mail.com",
-      "password": "1234567",
-      "id": 4
-    },
-    {
-      "email": "test04@mail.com",
-      "password": "1234567",
+      "name": "New",
+      "email": "jessica@mail.com",
+      "phone": "1243894",
       "id": 5
     }
   ]

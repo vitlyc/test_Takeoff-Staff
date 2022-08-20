@@ -6,11 +6,9 @@ import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  // console.log(currentUser);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    console.log("hi");
     dispatch(exitCurrentUser());
   };
 
@@ -18,7 +16,7 @@ const Navigation = () => {
     <>
       <div className="navigation">
         <Link to="/">
-          <span onClick={handleLogout}>Выйти</span>
+          <span onClick={handleLogout}>{currentUser ? "Выйти" : ""}</span>
         </Link>
       </div>
       <Outlet />
