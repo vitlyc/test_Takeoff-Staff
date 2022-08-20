@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { setCurrentUser } from "./store/user/user.action";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import SignInForm from "./components/sign-in-form/sign-in-form";
@@ -13,7 +14,7 @@ import ContactList from "./components/contact-list/contact-list";
 import { login, register } from "./utils/Api";
 
 function App() {
-  // const [currentUser, setCurrentUser] = useState(false);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ function App() {
   const handleRegister = ({ email, password }) => {
     console.log(email, password);
     register({ email, password }).then((res) => console.log(res.user));
+    navigate("/main");
   };
 
   useEffect(() => {
