@@ -10,7 +10,9 @@ export const contactsReducer = (state = CONTACTS_INITIAL_STATE, action = {}) => 
   switch (type) {
     case CONTACTS_ACTION_TYPES.SET_CONTACTS_MAP:
       return { ...state, contactsMap: payload };
-    case CONTACTS_ACTION_TYPES.DELTE_CONTACT:
+    case CONTACTS_ACTION_TYPES.DELETE_CONTACT:
+      return { ...state, contactsMap: payload };
+    case CONTACTS_ACTION_TYPES.EDIT_CONTACT:
       return { ...state, contactsMap: payload };
     default:
       return state;

@@ -18,7 +18,7 @@ function App() {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // console.log(currentUser);
+  const Bearer = currentUser.accessToken;
 
   const handleLogin = async ({ email, password }) => {
     await login({ email, password }).then((res) => {

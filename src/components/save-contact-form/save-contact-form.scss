@@ -1,0 +1,27 @@
+.save-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #76767f;
+    border-radius: 3px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    .button-container {
+        width: 100px;
+        align-self: center;
+    }
+    .fields {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: start;
+        input {
+            height: 30px;
+            border-radius: 3px;
+            background-color: #fafbf9;
+            padding-left: 5px;
+        }
+    }
+}
