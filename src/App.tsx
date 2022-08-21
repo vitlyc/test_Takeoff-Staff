@@ -18,24 +18,28 @@ import { login, register } from "./utils/Api";
 
 function App() {
   const currentUser = useSelector((state: User) => state);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   type MyFunction = (email: string, password: string) => void;
 
   const handleLogin: MyFunction = (email, password) => {
-    login({ email, password }).then((res) => {
-      dispatch(setCurrentUser(res));
-      navigate("/main");
-    });
+    login({ email, password })
+      .then((res) => {
+        dispatch(setCurrentUser(res));
+
+        navigate("/main");
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleRegister: MyFunction = (email, password) => {
-    register({ email, password }).then((res) => {
-      dispatch(setCurrentUser(res));
-      navigate("/main");
-    });
+    register({ email, password })
+      .then((res) => {
+        dispatch(setCurrentUser(res));
+        navigate("/main");
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -53,7 +57,7 @@ function App() {
             element={<SignUpForm handleRegister={handleRegister} />}
           />
           <Route
-            path="/main"
+            path="main"
             element={
               <ProtectedRoute currentUser={currentUser}>
                 <ContactList />

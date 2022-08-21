@@ -36,14 +36,18 @@ const Contact = ({ contact }) => {
   const ref = useDetectClickOutside({ onTriggered: blockInputs });
 
   const handleSaveContact = () => {
-    patchContact(inputs, Bearer);
+    patchContact(inputs, Bearer)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
     dispatch(editContactMap(contacts, inputs));
     setInputs(inputs);
     setInputsDisabled(true);
   };
 
   const handleDeleteContact = () => {
-    deleteContact(contact.id, Bearer).then((res) => console.log(res));
+    deleteContact(contact.id, Bearer)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
     dispatch(removeContactFromMap(contacts, contact));
   };
 

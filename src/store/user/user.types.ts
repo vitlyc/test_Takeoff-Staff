@@ -3,11 +3,13 @@ export enum USER_ACTION_TYPES {
   EXIT_CURRENT_USER = "user/EXIT_CURRENT_USER",
 }
 export type User = {
-  currentUser: {
-    accessToken: string;
-    user: {
-      email: string;
-      id: string;
+  user: {
+    currentUser: {
+      accessToken: string;
+      user: {
+        email: string;
+        id: string;
+      };
     };
   };
 };

@@ -14,8 +14,6 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const Bearer = currentUser.accessToken;
 
-  console.log(Bearer);
-
   const getContactsMap = async () => {
     const contactsMap = await getContacts(Bearer);
     dispatch(setContactsMap(contactsMap));

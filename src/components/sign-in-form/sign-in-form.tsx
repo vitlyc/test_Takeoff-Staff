@@ -1,7 +1,6 @@
 import "./sign-in-form.scss";
-import { useState, FC } from "react";
+import { useState, FC, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChangeEvent } from "react";
 import FormInput from "../form-input/form-input";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button";
 
