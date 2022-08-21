@@ -1,5 +1,5 @@
-import "./sign-in-form.scss";
-import { useState } from "react";
+import "./sign-up-form.scss";
+import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 import FormInput from "../form-input/form-input";
@@ -9,34 +9,36 @@ const defaultFormFields = {
   email: "",
   password: "",
 };
-
-const SignInForm = ({ handleLogin }) => {
+interface Props {
+  handleRegister: (email: string, password: string) => void;
+}
+const SignUpForm = ({ handleRegister }: Props) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/sign-up");
+    navigate("/");
   };
 
   const resetFormFields = () => {
     // setFormFields(defaultFormFields);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    handleLogin(formFields);
+    handleRegister(formFields.email, formFields.password);
     resetFormFields();
   };
 
   return (
-    <div className="sign-in-container">
-      <span>Войдите или зарегистрируйтесь</span>
+    <div className="sign-up-container">
+      <span>Зарегистрируйтесь или войдите</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
@@ -56,13 +58,13 @@ const SignInForm = ({ handleLogin }) => {
           value={password}
         />
         <div className="buttons-container">
-          <Button type="submit">Login</Button>
+          <Button type="submit">Register</Button>
           <Button
-            buttonType={BUTTON_TYPE_CLASSES.inverted}
             type="button"
+            buttonType={BUTTON_TYPE_CLASSES.inverted}
             onClick={handleNavigate}
           >
-            Register
+            Login
           </Button>
         </div>
       </form>
@@ -70,4 +72,4 @@ const SignInForm = ({ handleLogin }) => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

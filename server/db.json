@@ -40,26 +40,42 @@
       "email": "test049@mail.com",
       "password": "$2a$10$ArNunK5nJXXM8xBetma/iOlHvK4yKi3Hssgcvf9RUTh6hUlAKXBvm",
       "id": "_IW7UdW"
+    },
+    {
+      "email": "bob@mail.com",
+      "password": "$2a$10$W.PgJwbcCGI6R7yNwwwi1eeJGdd2JgMqeOWndTRpQo4HMlfm8Otp2",
+      "id": "P8ZRouj"
+    },
+    {
+      "email": "test0211@mail.com",
+      "password": "$2a$10$VqwBTLTwCJev1CWfu5lc4uU2WYLYhxrZhpA7QKikno1Dn6CRuuyHK",
+      "id": "Xu21p4u"
     }
   ],
   "contacts": [
     {
-      "name": "TEST11122",
-      "email": "test04@mail.com",
-      "phone": "1243894",
-      "id": 14
-    },
-    {
-      "name": "Bob",
-      "email": "jessica@mail.com",
-      "phone": "9229876sss ",
+      "name": "Bob22",
+      "email": "jessica@mail.com2",
+      "phone": "9229876sss 2",
       "id": 15
     },
     {
-      "name": "TEST111",
-      "email": "test04@mail.com",
+      "name": "New1",
+      "email": "jessica@mail.com",
       "phone": "1243894",
-      "id": 16
+      "id": 17
+    },
+    {
+      "name": "New2",
+      "email": "jessica@mail.com",
+      "phone": "1243894",
+      "id": 18
+    },
+    {
+      "name": "New3",
+      "email": "jessica@mail.com",
+      "phone": "1243894",
+      "id": 19
     }
   ]
 }

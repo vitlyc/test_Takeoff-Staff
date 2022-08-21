@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { setCurrentUser } from "./store/user/user.action";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { UserState } from "./store/user/user.reducer";
+import { User } from "./store/user/user.types";
 
 import SignInForm from "./components/sign-in-form/sign-in-form";
 import SignUpForm from "./components/sign-up-form/sign-up-form";
@@ -15,19 +17,22 @@ import ProtectedRoute from "./components/protected-route/protected-route";
 import { login, register } from "./utils/Api";
 
 function App() {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector((state: User) => state);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleLogin = async ({ email, password }) => {
-    await login({ email, password }).then((res) => {
+  type MyFunction = (email: string, password: string) => void;
+
+  const handleLogin: MyFunction = (email, password) => {
+    login({ email, password }).then((res) => {
       dispatch(setCurrentUser(res));
       navigate("/main");
     });
   };
 
-  const handleRegister = async ({ email, password }) => {
-    await register({ email, password }).then((res) => {
+  const handleRegister: MyFunction = (email, password) => {
+    register({ email, password }).then((res) => {
       dispatch(setCurrentUser(res));
       navigate("/main");
     });
